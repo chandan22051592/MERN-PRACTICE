@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var a = 0;
+    var b = 0;
+    let timer;
+
+    function debounce(){
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            ++b;
+            document.getElementById("Btndebounce").innerHTML = `Debounce called ${b} times`;
+        },2000);
+    }
+    
+    function update(){
+        document.getElementById("BtnClick").innerHTML = `Button was Clicked ${++a} times`;
+        debounce();
+        
+    }
+
+</script>
+<body>
+    <button onclick="update()">click me</button>
+    <p id="BtnClick"></p>
+    <p id = "Btndebounce"></p>
+</body>
+</html>

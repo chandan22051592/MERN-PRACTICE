@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input onInput = "debounce()" type="text" id="search" >
+
+    <script>
+        function debounce(func,delay) {
+            let timer;
+            clearTimeout(timer);
+            timer = setTimeout(()=>{
+                showalert();
+                
+            },2000);
+        }
+
+        function showalert(){
+            alert("Called after 2000ms");
+        }
+        
+        
+
+        // Usage: Debounce input event to run after user stops typing for 500ms
+
+    </script>
+
+    
+</body>
+</html>
+
+

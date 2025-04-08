@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id ="LoginForm">
+        first Name : <input type ="text" name = "fname" value = "Donald"><br>
+        last Name : <input type ="text" name = "lname" value = "Duck"><br>
+        <input type="submit" value="submit">
+
+    </form>
+
+    <button onclick =  "myFunction()">Try it</button>
+    <p id = "displaySpace"></p>
+
+    <script>
+        function myFunction(){
+            var a = document.getElementById("LoginForm").elements.length;
+            var b = document.getElementById("LoginForm").elements[0].value;
+
+            document.getElementById("displaySpace").innerHTML = "Found " + a +" elements in the form. First name entered is " + b;
+        }
+    </script>
+    
+</body>
+</html>

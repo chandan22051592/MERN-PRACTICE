@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 3000px; /* Add height to enable scrolling */
+        background: linear-gradient(white, lightblue);
+    }
+
+</style>
+<body onscroll="scrollCount()">
+    <section>
+        <p class="normal">Normal Count : 0 </p>
+        <p class = "throttle">Throttle Count : 0</p>
+    </section>
+
+
+    <script>
+        const n = document.querySelector(".normal");
+        const th = document.querySelector(".throttle");
+
+        let t_count = 0;
+        let n_count = 0;
+        let isScrolling = true;
+
+        function normalCount(){
+             ++n_count;
+             n.innerHTML = `Normal Count : ${n_count}`;
+
+        }
+
+        function throttleCount(){
+            if (isScrolling === true){
+                ++t_count;
+                th.innerHTML = `Throttle Count : ${t_count}`;
+                isScrolling = false;
+
+                setTimeout(()=>{
+                    isScrolling = true;
+
+                },1000);
+
+            }
+
+        }
+
+        function scrollCount(){
+            normalCount();
+            throttleCount();
+
+
+
+        }
+
+    </script>
+    
+</body>
+</html>
