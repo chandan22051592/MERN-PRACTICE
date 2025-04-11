@@ -6,7 +6,7 @@ function App() {
     setTitle("My name is " + Math.random());
   }
   return (
-    <React.Fragment>
+    <div>
       <button onClick={updateTitle}>Update the title</button>
       <br></br>
       <Header title={title}></Header> <br />
@@ -16,8 +16,7 @@ function App() {
       <Header title="Aman5"></Header> <br />
       <Header title="Aman6"></Header> 
 
-      
-    </React.Fragment>
+    </div >
   )
 }
 
