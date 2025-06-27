@@ -1,49 +1,47 @@
-import { useEffect, useState, useMemo } from 'react'
+import { memo,useEffect, useState, useMemo, useCallback } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 
 function App() {
-// ---------------------------------useMemo-------------------------------------------------------
-  const [input,setInput] = useState(0);
-  const [counter, setCounter] = useState(0);
-  let sum = useMemo(()=>{
-    console.log("Memo got called")
-    let sum=0;
-    for(let i=1;i<=input;i++){
-      sum += i; 
-    }
-    return sum;
+// // ---------------------------------useMemo-------------------------------------------------------
+//   const [input,setInput] = useState(0);
+//   const [counter, setCounter] = useState(0);
+//   let sum = useMemo(()=>{
+//     console.log("Memo got called")
+//     let sum=0;
+//     for(let i=1;i<=input;i++){
+//       sum += i; 
+//     }
+//     return sum;
 
-  },[input]);
-    
-  
+//   },[input]);  
 
 
-  return(
-    <>
-      <div>
-        <input onChange={function(e){
-          setInput(e.target.value);
-        }}placeholder={"Sum 1-n"}></input>
-      </div>
-      <br />
-      Sum from 1 to {input} is {sum};
+//   return(
+//     <>
+//       <div>
+//         <input onChange={function(e){
+//           setInput(e.target.value);
+//         }}placeholder={"Sum 1-n"}></input>
+//       </div>
+//       <br />
+//       Sum from 1 to {input} is {sum};
 
-      <br />
+//       <br />
 
-      <div>
-      <br />
-        <button onClick={()=>{setCounter(counter +1 );}}>
-          Count {counter}
-        </button>
-      </div>
+//       <div>
+//       <br />
+//         <button onClick={()=>{setCounter(counter +1 );}}>
+//           Count {counter}
+//         </button>
+//       </div>
 
-    </>
+//     </>
 
-  )
-}
+//   )
+// }
 
 
 
@@ -111,6 +109,32 @@ function App() {
 //   }
 
 // }
+
+
+// ---------------------------------useCallback-------------------------------------------------------
+// similar to useMemo
+
+
+
+  const [counter,setCounter] = useState(0);
+  const a =useCallback(()=>{
+    console.log("hii there")
+  },[])
+
+  return <div>
+    <button onClick={()=>{
+      setCounter(counter+1);
+    }}>Counter {counter}</button>
+
+    <Demo a={a}/>
+  </div>
+}
+const Demo = memo(function({a}){
+  console.log('rendered');
+  return <div>
+    hi therew
+  </div>
+})
 
 
 
