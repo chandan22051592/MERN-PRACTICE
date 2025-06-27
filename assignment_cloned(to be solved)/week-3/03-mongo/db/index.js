@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://aman123:Akamanboss%401@cluster0.oqj0vy6.mongodb.net/course_selling_app?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect("place Your mongo URL here  ", {
   })
   .then(()=>console.log("Connecte to MongoDb"))
   .catch((err)=>console.log("Connection error"))
